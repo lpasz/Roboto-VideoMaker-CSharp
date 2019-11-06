@@ -37,24 +37,14 @@ namespace Roboto_VideoMaker
             {
                 foreach (var prefix in prefixes)
                 {
-                    Console.WriteLine(string.Format("{0}:{1}", prefix.Key, prefix.Value));
+                    Console.WriteLine(string.Format("\t{0}:{1}", prefix.Key, prefix.Value));
                 }
-                Console.Write("Press any of the folowing keys to proceed, ");
-                prefixes.Keys.ToList().ForEach(p => Console.Write(string.Format("{0} ", p)));
-                Console.WriteLine();
+                Console.WriteLine("Press any of the folowing prefix keys to proceed, and any other key will cancel the operation");
 
                 var selectedPrefixKey = Console.ReadKey().KeyChar.ToString();
-                Console.WriteLine();
-                while (!prefixes.Keys.Contains(selectedPrefixKey))
-                {
-                    Console.Write("Not a valid key. Try");
-                    prefixes.Keys.ToList().ForEach(p => Console.Write(string.Format("{0} ",p)));
-                    Console.WriteLine();
-                    selectedPrefixKey = Console.ReadKey().KeyChar.ToString();
-                }
-
-                var selectedPrefix = prefixes[selectedPrefixKey]; 
+                var selectedPrefix = (prefixes.Keys.Contains(selectedPrefixKey)) ? prefixes[selectedPrefixKey] : throw new KeyNotFoundException("\n\n\nNo valid prefix key was pressed, please press a valid one !\n\n\n"); 
                 return selectedPrefix;
+
             }
 
             public string SearchTerm { get; private set; }
