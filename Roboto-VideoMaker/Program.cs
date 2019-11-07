@@ -9,6 +9,7 @@ namespace Roboto_VideoMaker
         static void Main(string[] args)
         {
             var userInput = new UserInput();
+            var textRobot = new TextRobot(userInput);
             Console.ReadKey();
         }
     }

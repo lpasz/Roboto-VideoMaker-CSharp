@@ -6,4 +6,8 @@
     <RootNamespace>Roboto_VideoMaker</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Algorithmia.Client" Version="1.0.5" />
+  </ItemGroup>
+
 </Project>
